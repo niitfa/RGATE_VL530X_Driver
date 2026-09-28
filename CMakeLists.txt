@@ -11,6 +11,7 @@ set(source_ext .c)
 # Targets
 set(exec_target run)
 set(off_target off)
+set(lib_target DistSensor)
 
 # ! В БУДУЩЕМ УКАЗАТЬ КОНКРЕТНЫЕ СПИСКИ ! 
 file(GLOB_RECURSE sources ${source_dir}/*${source_ext})
@@ -19,10 +20,11 @@ file(GLOB_RECURSE headers ${source_dir}/*${header_ext})
 # Create executable
 add_executable(${exec_target} main${source_ext} ${sources})
 add_executable(${off_target} off${source_ext} ${sources})
-add_library(DistSensor SHARED ${sources})
+add_library(${lib_target} SHARED ${sources})
 
 target_link_libraries(${exec_target} m wiringPi)
 target_link_libraries(${off_target} m wiringPi)
+target_link_libraries(${lib_target} m wiringPi)
 
 # Set headers
 foreach(_header ${headers})
