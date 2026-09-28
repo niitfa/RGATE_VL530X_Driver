@@ -31,7 +31,7 @@
 Открыть файл конфигурации
 # sudo nano /boot/orangepiEnv.txt
 В конец файла добавить строку
-overlays = i2c2-m0
+overlays=i2c2-m0
 Перезагрузить компьютер
 # reboot
 
